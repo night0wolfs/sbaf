@@ -17,7 +17,7 @@ class LoginController extends Controller
             return redirect((route('welcome')));
         }
         $formFields = $request->only(['email', 'password']);
-        if (Auth::attempt($formFields)) {
+        if (Auth::attempt(['email' => $formFields['email'], 'password' => $formFields['password']])) {
             return redirect()->intended(route('welcome'));
         }
 
