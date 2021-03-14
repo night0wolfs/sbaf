@@ -1,5 +1,8 @@
 <?php
 
+use Laravel\Socialite\SocialiteServiceProvider;
+use SocialiteProviders\Manager\ServiceProvider;
+
 return [
 
     /*
@@ -167,6 +170,7 @@ return [
         /*
          * Package Service Providers...
          */
+        ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -228,6 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Socialite' => SocialiteServiceProvider::class,
 
     ],
 
