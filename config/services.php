@@ -30,4 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'discord' => [
+        'client_id' => env('DISCORD_CLIENT_ID'),
+        'client_secret' => env('DISCORD_CLIENT_SECRET'),
+        'redirect' => env('DISCORD_URL_REDIRECT'),
+    ],
+
+    'eveOnline' => [
+        'client_id' => env('EVE_CLIENT_ID'),
+        'client_secret' => env('EVE_CLIENT_SECRET'),
+        'redirect' => env('EVE_URL_REDIRECT'),
+    ],
+
 ];

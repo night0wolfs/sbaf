@@ -41,3 +41,6 @@ Route::prefix('auth')->name('auth.')->group(function () {
     })->name('registration');
     Route::post('/registration', [RegisterController::class, 'save']);
 });
+
+Route::get('service/{provider}', 'App\Http\Controllers\SocialServiceController@redirectToProvider');
+Route::get('service/{provider}/callback', 'App\Http\Controllers\SocialServiceController@handleProviderCallback');
