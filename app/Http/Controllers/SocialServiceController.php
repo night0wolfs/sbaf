@@ -51,6 +51,7 @@ class SocialServiceController extends Controller
                         'access_token' => $result->accessTokenResponseBody['access_token'],
                         'refresh_token' => $result->accessTokenResponseBody['refresh_token']
                     ];
+//                    dd($user->characters()->where('character_id', $result->user['CharacterID'])->exists());
                     if ($user->characters()->where('character_id', $result->user['CharacterID'])->exists()) {
                         $user->characters()->where('character_id', $result->user['CharacterID'])->update($characterData);
                     } else {
@@ -76,10 +77,10 @@ class SocialServiceController extends Controller
                     }
                 }
                 break;
-                //TODO: Add redirect to profile user
+            //TODO: Add redirect to profile user
         }
 
-        dd($result);
+        dd('dddddddddddddddddd');
         $authUser = $accountService->findOrCreate(
             $result,
             $provider
