@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Services\SocialAccountService;
 use http\Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -28,11 +27,10 @@ class SocialServiceController extends Controller
     /**
      * Obtain the user information from GitHub.
      *
-     * @param SocialAccountService $accountService
      * @param $provider
      * @return Application|RedirectResponse|Redirector
      */
-    public function handleProviderCallback(SocialAccountService $accountService, $provider): Redirector|Application|RedirectResponse
+    public function handleProviderCallback($provider): Redirector|Application|RedirectResponse
     {
 
         try {
@@ -80,15 +78,7 @@ class SocialServiceController extends Controller
             //TODO: Add redirect to profile user
         }
 
-        dd('dddddddddddddddddd');
-        $authUser = $accountService->findOrCreate(
-            $result,
-            $provider
-        );
-
-        auth()->login($authUser, true);
-
-        return redirect()->to('/home');
+        return redirect(route('welcome'));
 
 
     }
